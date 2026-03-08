@@ -25,7 +25,7 @@
 #include <stdint.h>
 #include <ctype.h>
 #include <stdio.h>
-#include <sys/types.h>
+// #include <sys/types.h>
 #include "tinycbor/cbor.h"
 
 #ifdef MYNEWT
