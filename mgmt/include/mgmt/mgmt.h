@@ -77,11 +77,11 @@ extern "C" {
 #define MGMT_EVT_OP_CMD_DONE            0x03
 
 struct mgmt_hdr {
-#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#if (defined(__GNUC__) && (__BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__)) || (defined(__ICCARM__) && (__LITTLE_ENDIAN__))
     uint8_t  nh_op:3;           /* MGMT_OP_[...] */
     uint8_t  _res1:5;
 #endif
-#if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+#if (defined(__GNUC__) && (__BYTE_ORDER__ == __ORDER_BIG_ENDIAN__)) || (defined(__ICCARM__) && (__BIG_ENDIAN__))
     uint8_t  _res1:5;
     uint8_t  nh_op:3;           /* MGMT_OP_[...] */
 #endif
